@@ -1,10 +1,14 @@
-# LP CLINIC Cascais — Path A (dglxss)
+# LP CLINIC Cascais — Path A pitch
 
-Independent design study / pitch rebuild of [lpclinic.pt](https://www.lpclinic.pt/). **Not affiliated** with LP CLINIC.
+Independent design study for [lpclinic.pt](https://www.lpclinic.pt/). Not affiliated with LP CLINIC.
 
-- Craft: Motionsites clinical-editorial dental (PT default + EN, dark|light)
-- Opening: micro-loader crest
-- Stack: React + Tailwind + Next.js + Vercel
-- Attribution: built by dglxss
+**Craft:** Motionsites clinical-editorial dental · crest micro-loader open · PT default + EN · dark|light · Axiom: smile-journey strip, before/after reveal rail, international soft dock.
 
-See `docs/design-meeting.md`.
+**Stack:** Next.js · Tailwind · GitHub · Vercel
+
+```bash
+npm install
+npm run dev
+```
+
+Footer attribution: built by [dglxss](https://dglxss.com).
