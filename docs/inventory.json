@@ -1,0 +1,247 @@
+{
+  "name": "LP CLINIC",
+  "tagline_pt": "Redefina o seu sorriso restaure a sua confiança",
+  "tagline_en": "Redefine your smile restore your confidence",
+  "subtitle": "Premium Dental Center",
+  "address": "R. Pinheiros 192B, 2750-606 Cascais",
+  "hours_pt": "Segunda a Sexta das 9h às 19h",
+  "hours_en": "Monday to Friday from 9am to 7pm",
+  "phones": [
+    "+351 218 287 636",
+    "+351 931 803 555"
+  ],
+  "email": "geral@lpclinic.pt",
+  "whatsapp": "https://wa.me/351931803555",
+  "booking": "https://www.lpclinic.pt/marcacoes-online",
+  "maps": "https://www.google.com/maps/search/?api=1&query=R.+Pinheiros+192B+2750-606+Cascais",
+  "social": {
+    "instagram": "https://www.instagram.com/lpclinic_pt/",
+    "facebook": "https://www.facebook.com/lpclinicpt/",
+    "tiktok": "https://www.tiktok.com/@lpclinic_pt"
+  },
+  "ers": {
+    "license": "11464/2016",
+    "registo": "E129481"
+  },
+  "brand_colors": {
+    "charcoal": "#282626",
+    "near_black": "#151414",
+    "gold": "#DC940D",
+    "steel": "#2b5672",
+    "blue": "#116dff",
+    "cream": "#F2F2F2",
+    "white": "#FFFFFF"
+  },
+  "team": [
+    {
+      "id": "pedro-pimenta",
+      "name": "Dr. Pedro Pimenta",
+      "role_pt": "Cirurgia | Reabilitação Oral",
+      "role_en": "Surgery | Oral Rehabilitation",
+      "photo": "/team/pedro-pimenta.jpg"
+    },
+    {
+      "id": "catarina-cardoso",
+      "name": "Drª Catarina Cardoso",
+      "role_pt": "Harmonização Facial",
+      "role_en": "Facial Harmonization",
+      "photo": "/team/catarina-cardoso.jpg"
+    },
+    {
+      "id": "mafalda-faria",
+      "name": "Drª Mafalda Faria",
+      "role_pt": "Generalista",
+      "role_en": "General Dentistry",
+      "photo": "/team/mafalda-faria.jpg"
+    },
+    {
+      "id": "ana-sousa",
+      "name": "Drª Ana Sousa",
+      "role_pt": "Higiene Oral",
+      "role_en": "Oral Hygiene",
+      "photo": "/team/ana-sousa.jpg"
+    },
+    {
+      "id": "catarina-leonardo",
+      "name": "Drª Catarina Leonardo",
+      "role_pt": "Periodontologia",
+      "role_en": "Periodontology",
+      "photo": "/team/catarina-leonardo.jpg"
+    },
+    {
+      "id": "mariana-pires",
+      "name": "Drª Mariana Pires",
+      "role_pt": "Endodontia",
+      "role_en": "Endodontics",
+      "photo": "/team/mariana-pires.jpg"
+    },
+    {
+      "id": "ines-mateus",
+      "name": "Drª Inês Mateus",
+      "role_pt": "Odontopediatria",
+      "role_en": "Pediatric Dentistry",
+      "photo": "/team/ines-mateus.jpg"
+    },
+    {
+      "id": "rafaela-sacadura",
+      "name": "Drª Rafaela Sacadura",
+      "role_pt": "Harmonização Facial",
+      "role_en": "Facial Harmonization",
+      "photo": "/team/rafaela-sacadura.jpg"
+    },
+    {
+      "id": "veronica-sousa-martins",
+      "name": "Drª Veronica Sousa Martins",
+      "role_pt": "Periodontologia",
+      "role_en": "Periodontology",
+      "photo": "/team/veronica-sousa-martins.jpg"
+    },
+    {
+      "id": "tatiana-marques",
+      "name": "Drª Tatiana Marques",
+      "role_pt": "Dentisteria",
+      "role_en": "Restorative Dentistry",
+      "photo": null
+    }
+  ],
+  "treatments": [
+    {
+      "slug": "implantes",
+      "pt": "Implantes Dentários",
+      "en": "Dental Implants"
+    },
+    {
+      "slug": "protese-total-fixa",
+      "pt": "Prótese Total Fixa",
+      "en": "Full Fixed Prosthesis"
+    },
+    {
+      "slug": "periodontologia",
+      "pt": "Periodontologia",
+      "en": "Periodontology"
+    },
+    {
+      "slug": "endodontia",
+      "pt": "Endodontia",
+      "en": "Endodontics"
+    },
+    {
+      "slug": "invisalign",
+      "pt": "Invisalign®",
+      "en": "Invisalign®"
+    },
+    {
+      "slug": "odontopediatria",
+      "pt": "Odontopediatria",
+      "en": "Pediatric Dentistry"
+    },
+    {
+      "slug": "branqueamento",
+      "pt": "Branqueamento Dentário",
+      "en": "Teeth Whitening"
+    },
+    {
+      "slug": "facetas",
+      "pt": "Facetas Dentárias",
+      "en": "Dental Veneers"
+    },
+    {
+      "slug": "cirurgia-oral",
+      "pt": "Cirurgia Oral",
+      "en": "Oral Surgery"
+    },
+    {
+      "slug": "dentisteria",
+      "pt": "Dentisteria Estética",
+      "en": "Aesthetic Dentistry"
+    },
+    {
+      "slug": "harmonizacao",
+      "pt": "Harmonização Facial",
+      "en": "Facial Harmonization"
+    },
+    {
+      "slug": "gbt",
+      "pt": "Guided Biofilm Therapy ®",
+      "en": "Guided Biofilm Therapy ®"
+    }
+  ],
+  "pillars_pt": [
+    {
+      "t": "EQUIPA ESPECIALIZADA",
+      "d": "Profissionais altamente qualificados e experientes em odontologia estética e implantologia avançada."
+    },
+    {
+      "t": "RESULTADOS NATURAIS E DURADOUROS",
+      "d": "Foco em procedimentos que proporcionam um sorriso natural e de longa duração"
+    },
+    {
+      "t": "EXCELÊNCIA EM IMPLANTOLOGIA",
+      "d": "Especialização em tratamentos de implantes dentários, oferecendo soluções avançadas para a substituição de dentes"
+    },
+    {
+      "t": "TECNOLOGIA",
+      "d": "Utilização de equipamentos modernos para garantir precisão e eficiência nos tratamentos"
+    },
+    {
+      "t": "AMBIENTE SEGURO",
+      "d": "Consultórios desenhados para proporcionar bem-estar e segurança aos pacientes"
+    },
+    {
+      "t": "FACILIDADE DE ACESSO",
+      "d": "Localizada em Cascais, com fácil acesso e estacionamento para conveniência dos pacientes"
+    },
+    {
+      "t": "ATENDIMENTO PERSONALIZADO",
+      "d": "Cada paciente recebe um plano de tratamento individualizado, com atenção aos detalhes e necessidades específicas."
+    },
+    {
+      "t": "QUALIDADE",
+      "d": "Uso de materiais de alta qualidade e técnicas comprovadas para melhores resultados"
+    },
+    {
+      "t": "REPUTAÇÃO E CONFIANÇA",
+      "d": "Reconhecida pelos pacientes pela qualidade e confiança nos serviços prestados"
+    }
+  ],
+  "pillars_en": [
+    {
+      "t": "SPECIALIZED TEAM",
+      "d": "Highly qualified and experienced professionals in aesthetic dentistry and advanced implantology."
+    },
+    {
+      "t": "NATURAL AND LONG-LASTING RESULTS",
+      "d": "Focus on procedures that provide a natural, long-lasting smile"
+    },
+    {
+      "t": "EXCELLENCE IN IMPLANTOLOGY",
+      "d": "Specializing in dental implant treatments, offering advanced solutions for tooth replacement"
+    },
+    {
+      "t": "TECHNOLOGY",
+      "d": "Use of modern equipment to ensure precision and efficiency in treatments"
+    },
+    {
+      "t": "SAFE ENVIRONMENT",
+      "d": "Offices designed to provide well-being and safety to patients"
+    },
+    {
+      "t": "EASE OF ACCESS",
+      "d": "Located in Cascais, with easy access and parking for the convenience of patients"
+    },
+    {
+      "t": "PERSONALIZED SERVICE",
+      "d": "Each patient receives an individualized treatment plan, with attention to detail and specific needs."
+    },
+    {
+      "t": "QUALITY",
+      "d": "Use of high quality materials and proven techniques for best results"
+    },
+    {
+      "t": "REPUTATION AND TRUST",
+      "d": "Recognized by patients for the quality and trust in the services provided"
+    }
+  ],
+  "casos_blurb_pt": "Na LP CLINIC, acreditamos que cada sorriso tem uma história única para contar. Os casos clínicos da LP CLINIC refletem o nosso compromisso em transformar vidas através de tratamentos dentários avançados, personalizados e de alta qualidade.",
+  "casos_blurb_en": "At LP CLINIC, we believe that every smile has a unique story to tell. LP CLINIC’s clinical cases reflect our commitment to transforming lives through advanced, personalized, high-quality dental treatments."
+}
