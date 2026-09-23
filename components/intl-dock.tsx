@@ -33,7 +33,7 @@ export function IntlDock({ scrolled }: { scrolled: boolean }) {
     >
       <button
         type="button"
-        className="text-[12px] font-medium tracking-wide whitespace-nowrap"
+        className="text-[12px] font-medium tracking-wide whitespace-nowrap text-[color:var(--ink)]"
         onClick={() => scrollToAnchor("internacional", reduce ? "auto" : "smooth")}
       >
         {t.intlDock}
@@ -41,7 +41,7 @@ export function IntlDock({ scrolled }: { scrolled: boolean }) {
       <button
         type="button"
         onClick={() => setLocale(locale === "pt" ? "en" : "pt")}
-        className="rounded-full border border-[color:var(--line)] px-2.5 py-1 text-[10px] font-semibold tracking-wider uppercase"
+        className="rounded-full border border-[color:var(--line)] px-2.5 py-1 text-[10px] font-semibold tracking-wider text-[color:var(--ink)] uppercase"
         aria-label={t.chrome.localeAria}
       >
         {t.chrome.locale}

@@ -84,7 +84,7 @@ export function BeforeAfterRail() {
                       className="object-cover"
                       sizes="340px"
                     />
-                    <span className="absolute top-3 left-3 rounded-full bg-black/55 px-2.5 py-1 text-[10px] font-medium tracking-wider text-white uppercase backdrop-blur-sm">
+                    <span className="absolute top-3 left-3 rounded-full bg-black/75 px-2.5 py-1 text-[10px] font-medium tracking-wider text-white uppercase">
                       {t.before}
                     </span>
                   </div>
@@ -98,7 +98,7 @@ export function BeforeAfterRail() {
                       className="object-cover"
                       sizes="340px"
                     />
-                    <span className="absolute top-3 right-3 rounded-full bg-black/55 px-2.5 py-1 text-[10px] font-medium tracking-wider text-white uppercase backdrop-blur-sm">
+                    <span className="absolute top-3 right-3 rounded-full bg-black/75 px-2.5 py-1 text-[10px] font-medium tracking-wider text-white uppercase">
                       {t.after}
                     </span>
                   </div>
