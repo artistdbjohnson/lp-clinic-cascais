@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
+import { ExtLink } from "@/components/ext-link";
 import { CASE_PAIRS } from "@/lib/copy";
 import { usePrefs } from "@/lib/prefs";
 
@@ -9,10 +10,14 @@ function Pair({
   before,
   after,
   label,
+  detail,
+  href,
 }: {
   before: string;
   after: string;
   label: string;
+  detail: string;
+  href: string;
 }) {
   const { t } = usePrefs();
   const [pos, setPos] = useState(52);
@@ -32,6 +37,23 @@ function Pair({
       <div
         ref={box}
         className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-black/30 select-none"
+        role="slider"
+        tabIndex={0}
+        aria-valuemin={4}
+        aria-valuemax={96}
+        aria-valuenow={Math.round(pos)}
+        aria-valuetext={label}
+        aria-label={label}
+        onKeyDown={(e) => {
+          if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            setPos((p) => Math.max(4, p - 4));
+          }
+          if (e.key === "ArrowRight") {
+            e.preventDefault();
+            setPos((p) => Math.min(96, p + 4));
+          }
+        }}
         onPointerDown={(e) => {
           dragging.current = true;
           (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
@@ -69,7 +91,11 @@ function Pair({
           {t.after}
         </span>
       </div>
-      <p className="mt-3 text-sm text-[color:var(--muted)]">{label}</p>
+      <p className="mt-3 text-sm font-semibold">{label}</p>
+      <p className="mt-1 text-sm leading-relaxed text-[color:var(--muted)]">{detail}</p>
+      <ExtLink href={href} className="mt-2 inline-block text-sm font-medium text-gold hover:underline">
+        {t.casesOpen}
+      </ExtLink>
     </div>
   );
 }
@@ -84,6 +110,8 @@ export function BeforeAfterRail() {
           before={pair.before}
           after={pair.after}
           label={locale === "pt" ? pair.label.pt : pair.label.en}
+          detail={locale === "pt" ? pair.detail.pt : pair.detail.en}
+          href={pair.href}
         />
       ))}
     </div>
