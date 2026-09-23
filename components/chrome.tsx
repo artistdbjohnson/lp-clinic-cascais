@@ -93,7 +93,7 @@ export function Chrome({
         </a>
 
         <nav
-          className="liquid-glass hidden min-w-0 items-center justify-self-center gap-0.5 rounded-xl px-2.5 py-1.5 md:flex lg:gap-1 lg:px-3.5"
+          className="liquid-glass hidden min-w-0 items-center justify-self-center gap-0.5 overflow-x-auto rounded-xl px-2.5 py-1.5 [scrollbar-width:none] md:flex lg:gap-1 lg:px-3.5 [&::-webkit-scrollbar]:hidden"
           aria-label="Primary"
         >
           {RAIL.map((item) => {
@@ -149,6 +149,20 @@ export function Chrome({
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>
           <ExtLink
+            href={links.instagram}
+            aria-label={t.instagramKicker}
+            className={cn(
+              "hidden rounded-full p-2 md:inline-flex",
+              onHero || theme === "dark" ? "text-white/85 hover:bg-white/10" : "text-charcoal/80 hover:bg-black/5",
+            )}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
+            </svg>
+          </ExtLink>
+          <ExtLink
             href={links.booking}
             className="hidden rounded-full bg-gold px-3.5 py-2 text-[12px] font-semibold tracking-wide text-charcoal shadow-[0_8px_24px_rgba(220,148,13,0.28)] sm:inline-flex"
           >
@@ -183,11 +197,17 @@ export function Chrome({
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={(e) => goTo(e, item.id)}
-                  className="rounded-xl px-3 py-2.5 text-sm font-medium text-white/90 hover:bg-white/8"
+                  className="rounded-xl px-3 py-2.5 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/8"
                 >
                   {locale === "pt" ? item.pt : item.en}
                 </a>
               ))}
+              <ExtLink
+                href={links.instagram}
+                className="rounded-xl px-3 py-2.5 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/8"
+              >
+                Instagram
+              </ExtLink>
               <ExtLink
                 href={links.booking}
                 className="mt-2 rounded-full bg-gold px-4 py-3 text-center text-sm font-semibold text-charcoal"

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Chrome } from "@/components/chrome";
 import { CrestLoader } from "@/components/crest-loader";
 import { IntlDock } from "@/components/intl-dock";
+import { Social } from "@/components/social";
 import {
   Casos,
   Contacto,
@@ -17,6 +18,7 @@ import {
   Tratamentos,
 } from "@/components/sections";
 import { RAIL } from "@/lib/copy";
+import { scrollToAnchor } from "@/lib/scroll";
 
 export function Site() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,7 +32,7 @@ export function Site() {
   }, []);
 
   useEffect(() => {
-    const ids = ["top", ...RAIL.map((r) => r.id), "smile-journey"];
+    const ids = ["top", ...RAIL.map((r) => r.id), "smile-journey", "instagram"];
     const nodes = ids
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];
@@ -51,6 +53,13 @@ export function Site() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
+    const frame = window.requestAnimationFrame(() => scrollToAnchor(hash, "auto"));
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
   return (
     <>
       <CrestLoader />
@@ -63,11 +72,12 @@ export function Site() {
         <Tecnologia />
         <Casos />
         <Equipa />
+        <Social />
         <Internacional />
         <Contacto />
       </main>
       <Footer />
-      <IntlDock />
+      <IntlDock scrolled={scrolled} />
     </>
   );
 }
