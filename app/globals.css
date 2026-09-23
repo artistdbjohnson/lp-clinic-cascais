@@ -238,6 +238,12 @@ button:focus-visible {
   list-style: none;
 }
 
+.case-rail {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(220, 148, 13, 0.55) transparent;
+}
+
 .ig-card {
   position: relative;
   width: min(68vw, 240px);

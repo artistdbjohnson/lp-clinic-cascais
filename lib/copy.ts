@@ -55,39 +55,6 @@ export const TREATMENTS = [
   { slug: "gbt", pt: "Guided Biofilm Therapy ®", en: "Guided Biofilm Therapy ®", img: "/treatments/gbt.jpg", href: "https://www.lpclinic.pt/gbt", detail: { pt: "Protocolo GBT com a Drª Ana Sousa. Jato de ar, água e pó ultrafino, pensado para implantes, ortodontia e sensibilidade.", en: "GBT protocol with Dr. Ana Sousa. Air, water, and ultrafine powder, planned for implants, orthodontics, and sensitivity." } },
 ] as const;
 
-export const CASE_PAIRS = [
-  {
-    before: "/cases/case-01.jpg",
-    after: "/cases/case-02.jpg",
-    href: "https://www.lpclinic.pt/casos-clinicos-md",
-    label: { pt: "Caso clínico MD", en: "Clinical case MD" },
-    detail: {
-      pt: "Caso de medicina dentária publicado. O antes e o depois mostram função e estética, sem um resultado inventado.",
-      en: "Published dentistry case. The before and after show function and aesthetics, not an invented result.",
-    },
-  },
-  {
-    before: "/cases/case-03.jpg",
-    after: "/cases/case-04.jpg",
-    href: "https://www.lpclinic.pt/casos-clinicos-md",
-    label: { pt: "Caso clínico MD", en: "Clinical case MD" },
-    detail: {
-      pt: "Segundo caso MD do arquivo publicado. Arraste o revelador para comparar o registo clínico.",
-      en: "Second MD case from the published archive. Drag the reveal to compare the clinical record.",
-    },
-  },
-  {
-    before: "/cases/case-05.jpg",
-    after: "/cases/case-06.jpg",
-    href: "https://www.lpclinic.pt/casos-clinicos-hf",
-    label: { pt: "Caso clínico HF", en: "Clinical case HF" },
-    detail: {
-      pt: "Caso de harmonização facial publicado. A comparação fica no registo da clínica, não numa simulação.",
-      en: "Published facial-harmonization case. The comparison stays with the clinic record, not a simulation.",
-    },
-  },
-] as const;
-
 const pt = {
   brand: "LP CLINIC",
   brandLine: "Implantologia Oral & Estética Dentária",
@@ -150,7 +117,12 @@ const pt = {
   casesTitle: "Casos clínicos",
   casesLead:
     "Na LP CLINIC, acreditamos que cada sorriso tem uma história única para contar. Os casos clínicos refletem o nosso compromisso em transformar vidas através de tratamentos dentários avançados, personalizados e de alta qualidade.",
-  casesHint: "Arraste, ou use as setas do teclado, para revelar o antes e depois.",
+  casesHint: "Deslize a galeria. Cada cartão mostra o antes e o depois, com legenda.",
+  casesKicker: "Casos publicados. Resultados que variam.",
+  casesDisclaimer:
+    "Histórias de pacientes, com resultados realistas — e limites claros. Este bloco é um estudo de design independente (Path A), feito por dglxss, sem afiliação clínica com a LP CLINIC. Os pares ilustram casos de marketing público no Instagram @lpclinic_pt e no arquivo de lpclinic.pt. Não são aconselhamento médico. A anatomia, o plano e a cicatrização de cada pessoa são únicos; os resultados variam.",
+  casesPrev: "Casos anteriores",
+  casesNext: "Casos seguintes",
   casesOpen: "Ver no site da clínica",
   before: "Antes",
   after: "Depois",
@@ -260,7 +232,12 @@ const en: typeof pt = {
   casesTitle: "Clinical cases",
   casesLead:
     "At LP CLINIC, we believe that every smile has a unique story to tell. Clinical cases reflect our commitment to transforming lives through advanced, personalized, high-quality dental treatments.",
-  casesHint: "Drag, or use the arrow keys, to reveal before and after.",
+  casesHint: "Scroll the gallery. Each card shows before and after, with a caption.",
+  casesKicker: "Published cases. Results vary.",
+  casesDisclaimer:
+    "Patient stories, with realistic outcomes — and clear limits. This block is an independent design study (Path A), built by dglxss, with no clinical affiliation to LP CLINIC. The pairs illustrate public marketing cases on Instagram @lpclinic_pt and in the lpclinic.pt archive. Not medical advice. Each person’s anatomy, plan, and healing are unique; results vary.",
+  casesPrev: "Previous cases",
+  casesNext: "Next cases",
   casesOpen: "View on the clinic site",
   before: "Before",
   after: "After",
