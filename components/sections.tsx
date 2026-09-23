@@ -35,7 +35,10 @@ export function Hero() {
           >
             {t.heroCta}
           </ExtLink>
-          <ExtLink href={links.whatsapp} className="hero-glass rounded-full px-6 py-3.5 text-sm font-semibold">
+          <ExtLink
+            href={links.whatsapp}
+            className="rounded-full border border-white/40 bg-transparent px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+          >
             {t.heroWhatsapp}
           </ExtLink>
         </div>
@@ -125,7 +128,7 @@ export function SmileJourney() {
       <div className="mx-auto max-w-6xl">
         <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{t.journeyTitle}</h2>
         <p className="mt-3 text-[color:var(--muted)]">{t.journeyLead}</p>
-        <div className="journey-chip sticky top-[calc(var(--sticky-nav-height)+0.4rem)] z-30 mt-6 flex gap-2 overflow-x-auto rounded-full border border-[color:var(--line)] bg-[color:var(--bg)]/92 p-1.5 backdrop-blur-md md:hidden">
+        <div className="journey-chip sticky top-[calc(var(--sticky-nav-height)+0.4rem)] z-30 mt-6 flex gap-2 overflow-x-auto rounded-full border border-[color:var(--line)] bg-[color:var(--bg)] p-1.5 md:hidden">
           {t.journey.map((step, i) => (
             <span
               key={step.t}
