@@ -126,7 +126,7 @@ body {
   display: grid;
   place-items: center;
   background: #f4f1ec;
-  transition: opacity 0.7s ease;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 html.dark .crest-loader {
@@ -136,17 +136,17 @@ html.dark .crest-loader {
 .crest-mark {
   width: min(42vw, 180px);
   height: auto;
-  animation: crest-in 0.9s ease both;
+  animation: crest-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes crest-in {
   from {
     opacity: 0;
-    transform: translateY(8px) scale(0.96);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: none;
   }
 }
 
@@ -165,6 +165,105 @@ html[data-crest="show"] body {
 
 .intl-dock {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+  translate: -50% 0;
+  transition:
+    opacity 340ms cubic-bezier(0.22, 1, 0.36, 1),
+    translate 340ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.intl-dock-away {
+  opacity: 0;
+  translate: -50% 10px;
+  pointer-events: none;
+}
+
+/* Smile-journey path. The thread leaves; the rested rail matches the freeze. */
+.journey-thread {
+  position: absolute;
+  top: -0.55rem;
+  right: 0;
+  left: 0;
+  height: 1.5px;
+  transform-origin: left center;
+  transform: scaleX(0);
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(220, 148, 13, 0.95), transparent);
+}
+
+.journey-rail[data-journey="wait"] .journey-step {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.journey-rail[data-journey="play"] .journey-thread {
+  animation: journey-thread 1350ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.journey-rail[data-journey="play"] .journey-step {
+  animation: journey-step-in 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.journey-rail[data-journey="play"] .journey-step:nth-child(1) {
+  animation-delay: 180ms;
+}
+
+.journey-rail[data-journey="play"] .journey-step:nth-child(2) {
+  animation-delay: 290ms;
+}
+
+.journey-rail[data-journey="play"] .journey-step:nth-child(3) {
+  animation-delay: 400ms;
+}
+
+.journey-rail[data-journey="play"] .journey-step:nth-child(4) {
+  animation-delay: 510ms;
+}
+
+.journey-rail[data-journey="done"] .journey-step {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+.journey-rail[data-journey="done"] .journey-thread {
+  opacity: 0;
+  transform: scaleX(0);
+  animation: none;
+}
+
+@keyframes journey-step-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes journey-thread {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  18% {
+    opacity: 1;
+    transform: scaleX(0.42);
+  }
+  62% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  78% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
 }
 
 a:focus-visible,
@@ -224,6 +323,25 @@ button:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .journey-rail[data-journey="wait"] .journey-step,
+  .journey-rail[data-journey="play"] .journey-step,
+  .journey-rail[data-journey="done"] .journey-step {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .journey-thread {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  .intl-dock,
+  .intl-dock-away {
+    transition: none;
+    translate: -50% 0;
+  }
+
   .ig-marquee {
     overflow-x: auto;
     mask-image: none;
