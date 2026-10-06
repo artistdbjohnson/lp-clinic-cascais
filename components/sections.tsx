@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useLayoutEffect, useRef, type AnimationEvent as ReactAnimationEvent } from "react";
 import { BeforeAfterRail } from "@/components/before-after";
 import { ExtLink } from "@/components/ext-link";
 import { MediaCard } from "@/components/media-card";
@@ -121,8 +122,89 @@ export function Tratamentos() {
   );
 }
 
+const JOURNEY_KEY = "lp-journey-thread";
+const JOURNEY_FALLBACK_MS = 1700;
+
+function useJourneyPath() {
+  const railRef = useRef<HTMLDivElement>(null);
+  const fallbackRef = useRef(0);
+  const finishRef = useRef<() => void>(() => {});
+
+  useLayoutEffect(() => {
+    const rail = railRef.current;
+    if (!rail) return;
+
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+
+    let seen = false;
+    try {
+      seen = sessionStorage.getItem(JOURNEY_KEY) === "1";
+    } catch {
+      seen = true;
+    }
+    if (seen) return;
+
+    if (window.location.hash.length > 1) {
+      try {
+        sessionStorage.setItem(JOURNEY_KEY, "1");
+      } catch {
+        /* deep link stays on the rested rail */
+      }
+      return;
+    }
+
+    const finish = () => {
+      if (rail.dataset.journey === "done") return;
+      rail.dataset.journey = "done";
+      window.clearTimeout(fallbackRef.current);
+      try {
+        sessionStorage.setItem(JOURNEY_KEY, "1");
+      } catch {
+        /* ignore */
+      }
+    };
+    finishRef.current = finish;
+
+    let observer: IntersectionObserver | null = null;
+    const play = () => {
+      observer?.disconnect();
+      if (rail.dataset.journey === "play" || rail.dataset.journey === "done") return;
+      rail.dataset.journey = "play";
+      window.clearTimeout(fallbackRef.current);
+      fallbackRef.current = window.setTimeout(finish, JOURNEY_FALLBACK_MS);
+    };
+
+    if (rail.getBoundingClientRect().top < window.innerHeight) {
+      play();
+    } else {
+      rail.dataset.journey = "wait";
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) play();
+        },
+        { threshold: 0 },
+      );
+      observer.observe(rail);
+    }
+
+    return () => {
+      observer?.disconnect();
+      window.clearTimeout(fallbackRef.current);
+    };
+  }, []);
+
+  const onAnimationEnd = (event: ReactAnimationEvent<HTMLDivElement>) => {
+    if (event.animationName !== "journey-thread") return;
+    finishRef.current();
+  };
+
+  return { railRef, onAnimationEnd };
+}
+
 export function SmileJourney() {
   const { t } = usePrefs();
+  const { railRef, onAnimationEnd } = useJourneyPath();
   return (
     <section id="smile-journey" className="section-anchor px-5 py-20 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl">
@@ -138,12 +220,15 @@ export function SmileJourney() {
             </span>
           ))}
         </div>
-        <div className="mt-6 flex gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-4 md:overflow-visible">
-          {t.journey.map((step, i) => (
-            <div key={step.t} className="min-w-[240px] shrink-0 md:min-w-0">
-              <MediaCard img={step.img} kicker={`0${i + 1}`} title={step.t} body={step.d} />
-            </div>
-          ))}
+        <div ref={railRef} className="journey-rail relative mt-6" onAnimationEnd={onAnimationEnd}>
+          <div className="journey-thread" aria-hidden="true" />
+          <div className="journey-steps flex gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-4 md:overflow-visible">
+            {t.journey.map((step, i) => (
+              <div key={step.t} className="journey-step min-w-[240px] shrink-0 md:min-w-0">
+                <MediaCard img={step.img} kicker={`0${i + 1}`} title={step.t} body={step.d} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -24,12 +24,16 @@ export function IntlDock({ scrolled }: { scrolled: boolean }) {
     return () => observer.disconnect();
   }, []);
 
+  const away = hidden || !scrolled;
+
   return (
     <div
       className={cn(
-        "intl-dock liquid-glass liquid-glass-panel pointer-events-auto fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-1/2 z-40 hidden -translate-x-1/2 items-center gap-2 rounded-full px-3 py-2 sm:flex",
-        (hidden || !scrolled) && "sm:hidden",
+        "intl-dock liquid-glass liquid-glass-panel fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-1/2 z-40 hidden items-center gap-2 rounded-full px-3 py-2 sm:flex",
+        away && "intl-dock-away",
       )}
+      inert={away}
+      aria-hidden={away}
     >
       <button
         type="button"
